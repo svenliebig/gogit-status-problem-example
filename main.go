@@ -33,8 +33,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("File in Status:")
+	if len(status) == 0 {
+		fmt.Println("No changes")
+		os.Exit(0)
+	}
+
+	fmt.Println("Files in Status:")
 	for key, s := range status {
-		fmt.Printf("Key: %s, Status: %v\n", key, s)
+		fmt.Printf("  File: %s, Status: %v\n", key, s)
 	}
 }
